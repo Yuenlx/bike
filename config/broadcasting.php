@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Broadcaster
+    | Default Broadcaster  事件广播系统相关配置
     |--------------------------------------------------------------------------
     |
     | This option controls the default broadcaster that will be used by the

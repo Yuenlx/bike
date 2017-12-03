@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Application Name 应用名称
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -56,7 +56,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Timezone
+    | Application Timezone 时区
     |--------------------------------------------------------------------------
     |
     | Here you may specify the default timezone for your application, which
@@ -69,7 +69,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | Application Locale Configuration 语言
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used

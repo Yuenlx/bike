@@ -13,9 +13,8 @@
 | 定义Web类型的路由
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'PagesController@root')->name('root');
 
 Auth::routes();
 

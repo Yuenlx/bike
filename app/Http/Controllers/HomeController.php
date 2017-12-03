@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Artisan make:auth 自带控制器
+ */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

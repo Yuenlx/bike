@@ -2,55 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model implements Transformable
+class User extends Authenticatable
 {
-    use TransformableTrait;
+    use Notifiable;
 
-    protected $table='users';
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'nickname',
-        'mobile',
-        'weixin_open_id',
-        'gender',
-        'avatar',
-        'is_deposit',
-        'deposit_money',
-        'money'
-    ];
-
-    public $casts=[
-        'is_deposit'=>'bool'
+        'name', 'email', 'password',
     ];
 
     /**
-     * 骑行记录
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
      */
-    public function riders()
-    {
-        return $this->hasMany(Rider::class, 'user_id');
-    }
-
-
-    /**
-     * 骑过的单车
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function bikes()
-    {
-        return $this->belongsToMany(
-            Bike::class,
-            'riders',
-            'user_id',
-            'bike_id')
-            ->withTimestamps();
-    }
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 }

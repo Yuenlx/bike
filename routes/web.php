@@ -37,10 +37,7 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-
-
-
-
-
 //Artisan make:auth 自带的，但已自定义 PagesController 为主页
 //Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);

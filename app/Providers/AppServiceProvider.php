@@ -17,6 +17,8 @@ class AppServiceProvider extends ServiceProvider
 //        User::creating(function (User $user){
 //            $user->setAttribute('password', \Hash::make($user->password));
 //        });
+
+        \Carbon\Carbon::setLocale('zh');
     }
 
     /**

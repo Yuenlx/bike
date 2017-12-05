@@ -80,7 +80,8 @@ return [
     */
 
     //'locale' => 'en',
-    'local' => 'zh-CN',
+    //之前 locale 写成 local ，导致 Overtrue 不能自动使用
+    'locale' => 'zh-CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +179,9 @@ return [
 
         //Repository
         \Prettus\Repository\Providers\RepositoryServiceProvider::class,
+
+        //Overtrue
+        \Overtrue\LaravelLang\TranslationServiceProvider::class,
 
 
 

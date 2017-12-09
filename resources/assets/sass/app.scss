@@ -25,6 +25,21 @@ body {
   border-top: 4px solid #00b5ad;
   margin-bottom: 40px;
   margin-top: 0px;
+
+  /* 1209 顶部横条-优化DropDown-menu */
+  .dropdown-menu {
+    padding: 0px;
+
+    li a {
+      border-bottom: 1px solid #d8d8d8;
+      line-height: 2.4;
+
+      .glyphicon {
+        margin-right: 8px;
+      }
+    }
+  }
+
 }
 
 
@@ -71,14 +86,52 @@ body {
   }
 }
 
-/* User profile page 去掉图片底部留白 */
+/* User profile page */
+
 .users-show-page {
+
+  /* 去掉图片底部留白 */
   .user-info {
     .thumbnail {
       margin-bottom: 0px;
     }
   }
+
+
+  /* 去掉 TA tab 灰底等 */
+  .nav-tabs {
+    margin-bottom: 20px;
+
+    >li.active > a {
+      background-color: #fff;
+    }
+  }
+
+
+  /* 优化列表 */
+  .list-group {
+    .list-group-item {
+      border: none;
+      margin-bottom: 0px;
+      border-bottom: 1px solid #efefef;
+
+      .meta {
+        color: #b3b3b3;
+      }
+    }
+  }
+
+
+  /* 优化分页 */
+  .pagination {
+    margin: 12px 0;
+  }
 }
+
+
+
+
+
 
 /* Topic Index Page */
 .topics-index-page, .categories-show-page {

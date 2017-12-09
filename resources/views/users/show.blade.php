@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $user->name . ' 的个人中心')
+@section('title', $user->name . '个人中心')
 
 @section('content')
 
@@ -35,13 +35,17 @@
             </div>
             <hr>
 
-            {{-- 用户发布的内容 --}}
+            {{-- 此用户发布过的全部话题 --}}
             <div class="panel panel-default">
                 <div class="panel-body">
-                    没有更多数据啦 ~_~
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#">Ta的话题</a></li>
+                        <li><a href="#">Ta的回复</a></li>
+                    </ul>
+                    @include('users._topics', ['topics' => $user->topics()->recent()->paginate(5)])
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 @stop

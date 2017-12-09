@@ -70,3 +70,12 @@ body {
     cursor: pointer;
   }
 }
+
+/* User profile page 去掉图片底部留白 */
+.users-show-page {
+  .user-info {
+    .thumbnail {
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -13,3 +13,10 @@ function route_class()
 {
     return str_replace('.', '-', Route::currentRouteName());
 }
+
+// 为发布新话题时，数据模型观察器生成话题摘要 excerpt 字段用
+function make_excerpt($value, $length = 200)
+{
+    $excerpt = trim(preg_replace('/\r\n|\r|\n+/', '', strip_tags($value)));
+    return str_limit($excerpt, $length);
+}

@@ -29,23 +29,22 @@ class TopicsController extends Controller
     }
 
 
-    // 发布新话题/编辑话题页面
+    // 发布新话题
 	public function create(Topic $topic)
 	{
-        $categorys = Category::all();
-		return view('topics.create_and_edit', compact('topic', 'categorys'));
+        $categories = Category::all();
+		return view('topics.create_and_edit', compact('topic', 'categories'));
 	}
 
 
-	// 话题保存处理
+	// 话题保存 第二个参数会创建一个空白的$topic实例
 	public function store(TopicRequest $request, Topic $topic)
 	{
 	    $topic->fill($request->all());
 	    $topic->user_id = Auth::id();
-        $topic->excerpt = $topic->body;
 	    $topic->save();
 
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Created successfully.');
+		return redirect()->route('topics.show', $topic->id)->with('message', '话题发布成功！');
 	}
 
 	public function edit(Topic $topic)

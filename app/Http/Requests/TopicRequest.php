@@ -43,6 +43,4 @@ class TopicRequest extends Request
             'body.min' => '内容必须至少三个字符',
         ];
     }
-
-
 }

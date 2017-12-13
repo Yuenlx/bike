@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use Auth;
+use App\Handlers\ImageUploadHandler;
 
 class TopicsController extends Controller
 {
@@ -68,4 +69,29 @@ class TopicsController extends Controller
 
 		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
 	}
+
+	// 处理发布新话题页，内容里添加了图片的处理
+	public function uploadImage(Request $request, ImageUploadHandler $uploader)
+    {
+        // 初始化返回数据，默认是失败的。在LA中返回数组会自动解析为JSON的。
+        $data = [
+            'success'   => false,
+            'msg'       => '上传失败！',
+            'file_path' => ''
+        ];
+
+        // 判断是否有上传文件，并赋值给 $file
+        if ($file = $request->upload_file) {
+            // 保存图片到服务器本地
+            $result = $uploader->save($request->upload_file, 'topics', Auth::id(), 1024);
+            // 图片保存成功的话
+            if ($result) {
+                $data['success'] = true;
+                $data['msg'] = '上传成功！';
+                $data['file_path'] = $result['path'];
+            }
+        }
+
+        return $data;
+    }
 }

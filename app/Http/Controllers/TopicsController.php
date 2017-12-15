@@ -24,6 +24,8 @@ class TopicsController extends Controller
 		return view('topics.index', compact('topics'));
 	}
 
+
+	// 隐形路由模型绑定，请求...topics/1类似的时，$topic变量自动解析为ID为1的话题对象
     public function show(Topic $topic)
     {
         return view('topics.show', compact('topic'));
@@ -59,7 +61,7 @@ class TopicsController extends Controller
 		$this->authorize('update', $topic);
 		$topic->update($request->all());
 
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Updated successfully.');
+		return redirect()->route('topics.show', $topic->id)->with('message', '话题修改成功！');
 	}
 
 	public function destroy(Topic $topic)
@@ -67,7 +69,7 @@ class TopicsController extends Controller
 		$this->authorize('destroy', $topic);
 		$topic->delete();
 
-		return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('topics.index')->with('message', '话题删除成功！');
 	}
 
 	// 处理发布新话题页，内容里添加了图片的处理

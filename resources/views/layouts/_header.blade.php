@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                BikeBBS
+                Bike白客
             </a>
         </div>
 

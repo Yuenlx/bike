@@ -26,8 +26,12 @@ class TopicsController extends Controller
 
 
 	// 隐形路由模型绑定，请求...topics/1类似的时，$topic变量自动解析为ID为1的话题对象
-    public function show(Topic $topic)
+    public function show(Request $request, Topic $topic)
     {
+        // URL 矫正
+        if (! empty($topic->slug) && $topic->slug != $request->slug) {
+            return redirect($topic->link(), 301);
+        }
         return view('topics.show', compact('topic'));
     }
 
@@ -63,7 +67,8 @@ class TopicsController extends Controller
 		$this->authorize('update', $topic);
 		$topic->update($request->all());
 
-		return redirect()->route('topics.show', $topic->id)->with('message', '话题修改成功！');
+		//return redirect()->route('topics.show', $topic->id)->with('message', '话题修改成功！');
+        return redirect()->to($topic->link())->with('message', '话题修改成功！');
 	}
 
 	public function destroy(Topic $topic)

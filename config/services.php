@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Third Party Services
+    | Third Party Services 第三方服务的配置信息
     |--------------------------------------------------------------------------
     |
     | This file is for storing the credentials for third party services such
@@ -33,6 +33,11 @@ return [
         'model' => App\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
+    ],
+
+    'baidu_translate' => [
+        'appid' => env('BAIDU_TRANSLATE_APPID'),
+        'key' => env('BAIDU_TRANSLATE_KEY'),
     ],
 
 ];

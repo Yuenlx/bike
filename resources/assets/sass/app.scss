@@ -126,9 +126,17 @@ body {
   .pagination {
     margin: 12px 0;
   }
+
+
+  /* 优化 Ta 相关 */
+  .meta {
+    font-size: .9em;
+    color: #b3b3b3;
+  }
+  .reply-content {
+    margin: 6px 0;
+  }
 }
-
-
 
 
 
@@ -183,5 +191,21 @@ body {
       font-size: 28px;
       line-height: 38px;
     }
+  }
+}
+
+.topic-reply {
+  hr {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  
+  a {
+    color: inherit;
+  }
+  
+  .meta {
+    font-size: .9em;
+    color: #b3b3b3;
   }
 }

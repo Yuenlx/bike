@@ -31,11 +31,24 @@ class User extends Authenticatable
 
 
 
-    // 此用户发布过的所有话题
+    // 用户数据模型与其他2个模型的关联
     public function topics()
     {
         return $this->hasMany(Topic::class);
     }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+
+
+
+
+
+
+
 
 
     public function isAuthorOf($model)

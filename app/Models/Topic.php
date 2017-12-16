@@ -7,6 +7,9 @@ class Topic extends Model
     // 限定可操作的话题表字段
     protected $fillable = ['title', 'body', 'category_id', 'excerpt', 'slug'];
 
+
+
+    // 话题数据模型与其他3个模型的关联
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -16,6 +19,19 @@ class Topic extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+
+
+
+
+
+
+
 
 
 

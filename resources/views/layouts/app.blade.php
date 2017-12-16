@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Bike') | 一个帮助新青年成长的社区</title>
+    <title>@yield('title', 'Bike') | 一个帮助职场青年成长的社区</title>
     <meta name="description" content="@yield('description', '新青年成长社区')"/>
 
     <!-- Styles -->

@@ -58,9 +58,11 @@ class RepliesController extends Controller
 
 	public function destroy(Reply $reply)
 	{
+	    // 调用 ReplyPolicy 策略里的 destroy
 		$this->authorize('destroy', $reply);
 		$reply->delete();
 
-		return redirect()->route('replies.index')->with('success', '删除成功！~_~');
+		// return redirect()->route('replies.index')->with('success', '删除成功！~_~');
+        return redirect()->to($reply->topic->link())->with('success', '删除成功！~_~');
 	}
 }

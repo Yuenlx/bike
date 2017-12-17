@@ -15,16 +15,10 @@ class TopicObserver
     {
         //
     }
-
-
-
     public function updating(Topic $topic)
     {
         //
     }
-
-
-
     // 每个数据模型都有生命周期，周期里会有很多事件(creating、...saved...)
     public function saving(Topic $topic)
     {
@@ -35,8 +29,6 @@ class TopicObserver
         $topic->excerpt = make_excerpt($topic->body);
 
     }
-
-
     public function saved(Topic $topic)
     {
 
@@ -45,5 +37,10 @@ class TopicObserver
             //$topic->slug = app(SlugTranslateHandler::class)->translate($topic->title);
             dispatch(new TranslateSlug($topic));
         }
+    }
+    public function deleted(Topic $topic)
+    {
+        // 话题删除完成时，将话题的全部回复一并删除掉
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
     }
 }

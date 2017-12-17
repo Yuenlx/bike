@@ -15,13 +15,10 @@ class ReplyObserver
         // 避免回复的 XSS 隐患
         $reply->content = clean($reply->content, 'user_topic_body');
     }
-
     public function updating(Reply $reply)
     {
         //
     }
-
-
     public function created(Reply $reply)
     {
         $topic = $reply->topic;
@@ -31,5 +28,9 @@ class ReplyObserver
         if ( ! $reply->user->isAuthorOf($topic)) {
             $topic->user->notify(new TopicReplied($reply));
         }
+    }
+    public function deleted(Reply $reply)
+    {
+        $reply->topic->decrement('reply_count', 1);
     }
 }

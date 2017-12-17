@@ -11,7 +11,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="text-center">
-                    笔者：{{ $topic->user->name }}
+                    作者：{{ $topic->user->name }}
                 </div>
                 <hr>
                 <div class="media">
